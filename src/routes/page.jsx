@@ -12,7 +12,7 @@ export default function RootPage() {
                 <p className="mb-8 text-muted-foreground text-center">
                     Welcome to our cozy coffee corner, where every cup is a delightful for you.
                 </p>
-                <Button className={"w-full rounded-lg min-h-14 text-xl"} size={"lg"} asChild>
+                <Button className={"w-full rounded-lg min-h-14 text-lg"} size={"lg"} asChild>
                     <Link to="/home">Get Started</Link>
                 </Button>
             </section>
