@@ -73,12 +73,12 @@ export default function HomePage() {
                     </div>
                 </section>
                 <section className="mt-12 p-4">
-                    <Tabs defaultValue="all" className="w-full">
-                        <TabsList className={"w-full rounded-none bg-background h-12 overflow-x-auto"}>
+                    <Tabs defaultValue="all" className="w-full space-y-4">
+                        <TabsList className={"w-full rounded-none bg-muted/20 h-12 overflow-x-auto"}>
                             <TabsTrigger
                                 value="all"
                                 className={
-                                    "rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
+                                    " cursor-pointer rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
                                 }
                             >
                                 All Coffee
@@ -86,7 +86,7 @@ export default function HomePage() {
                             <TabsTrigger
                                 value="machiato"
                                 className={
-                                    "rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
+                                    " cursor-pointer rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
                                 }
                             >
                                 Machiato
@@ -94,7 +94,7 @@ export default function HomePage() {
                             <TabsTrigger
                                 value="latte"
                                 className={
-                                    "rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
+                                    " cursor-pointer rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
                                 }
                             >
                                 Latte
@@ -102,7 +102,7 @@ export default function HomePage() {
                             <TabsTrigger
                                 value="americano"
                                 className={
-                                    "rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
+                                    " cursor-pointer rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
                                 }
                             >
                                 Americano
@@ -117,7 +117,7 @@ export default function HomePage() {
                                     name: "Espresso",
                                     description: "Rich and bold",
                                     price: 3.5,
-                                    image: "https://images.unsplash.com/photo-1595928642581-f50f4f3453a5?q=80&w=855&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                    image: "https://images.unsplash.com/photo-1595928642581-f50f4f3453a5?q=80&w=855&auto=format&fit=crop",
                                 },
                                 {
                                     name: "Latte",
@@ -129,13 +129,109 @@ export default function HomePage() {
                                     name: "Mocha",
                                     description: "Chocolate infused",
                                     price: 4.5,
-                                    image: "",
+                                    image: "https://images.unsplash.com/photo-1587731441283-ec6fa51b8e0e?auto=format&fit=crop&w=400&q=80",
                                 },
                                 {
                                     name: "Cappuccino",
                                     description: "Frothy and creamy",
                                     price: 4.0,
                                     image: "https://images.unsplash.com/photo-1545249390-b2903f7d0d1f?auto=format&fit=crop&w=400&q=80",
+                                },
+                                {
+                                    name: "Flat White",
+                                    description: "Velvety smooth",
+                                    price: 4.3,
+                                    image: "https://images.unsplash.com/photo-1618413082925-541bf67f8f51?auto=format&fit=crop&w=400&q=80",
+                                },
+                                {
+                                    name: "Macchiato",
+                                    description: "Espresso with a dash of milk",
+                                    price: 3.8,
+                                    image: "https://images.unsplash.com/photo-1610363096129-30a2eb3116ee?auto=format&fit=crop&w=400&q=80",
+                                },
+                            ].map((item, idx) => (
+                                <CoffeeCard key={idx} item={item} />
+                            ))}
+                        </TabsContent>
+
+                        <TabsContent
+                            value="machiato"
+                            className={"grid gap-y-8 gap-x-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"}
+                        >
+                            {[
+                                {
+                                    name: "Classic Macchiato",
+                                    description: "Espresso with a drop of milk",
+                                    price: 3.9,
+                                    image: "https://images.unsplash.com/photo-1589468121285-e70e2d5b22b5?auto=format&fit=crop&w=400&q=80",
+                                },
+                                {
+                                    name: "Caramel Macchiato",
+                                    description: "Drizzled with caramel",
+                                    price: 4.6,
+                                    image: "https://images.unsplash.com/photo-1612464325393-39bb8b015127?auto=format&fit=crop&w=400&q=80",
+                                },
+                                {
+                                    name: "Iced Macchiato",
+                                    description: "Chilled and refreshing",
+                                    price: 4.4,
+                                    image: "https://images.unsplash.com/photo-1579566346924-6a43b2c292e6?auto=format&fit=crop&w=400&q=80",
+                                },
+                            ].map((item, idx) => (
+                                <CoffeeCard key={idx} item={item} />
+                            ))}
+                        </TabsContent>
+
+                        <TabsContent
+                            value="latte"
+                            className={"grid gap-y-8 gap-x-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"}
+                        >
+                            {[
+                                {
+                                    name: "Vanilla Latte",
+                                    description: "Smooth vanilla twist",
+                                    price: 4.7,
+                                    image: "https://images.unsplash.com/photo-1515548210028-3d11d0e07b8e?auto=format&fit=crop&w=400&q=80",
+                                },
+                                {
+                                    name: "Hazelnut Latte",
+                                    description: "Nutty and warm",
+                                    price: 4.8,
+                                    image: "https://images.unsplash.com/photo-1612774368228-64b14562175c?auto=format&fit=crop&w=400&q=80",
+                                },
+                                {
+                                    name: "Iced Latte",
+                                    description: "Perfect for summer",
+                                    price: 4.5,
+                                    image: "https://images.unsplash.com/photo-1570872622025-6e76a6f8a928?auto=format&fit=crop&w=400&q=80",
+                                },
+                            ].map((item, idx) => (
+                                <CoffeeCard key={idx} item={item} />
+                            ))}
+                        </TabsContent>
+
+                        <TabsContent
+                            value="americano"
+                            className={"grid gap-y-8 gap-x-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"}
+                        >
+                            {[
+                                {
+                                    name: "Classic Americano",
+                                    description: "Straight and strong",
+                                    price: 3.2,
+                                    image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=400&q=80",
+                                },
+                                {
+                                    name: "Iced Americano",
+                                    description: "Cold brewed strength",
+                                    price: 3.4,
+                                    image: "https://images.unsplash.com/photo-1516910817561-7fb928b60d6b?auto=format&fit=crop&w=400&q=80",
+                                },
+                                {
+                                    name: "Cinnamon Americano",
+                                    description: "With a dash of spice",
+                                    price: 3.6,
+                                    image: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=400&q=80",
                                 },
                             ].map((item, idx) => (
                                 <CoffeeCard key={idx} item={item} />
@@ -150,7 +246,7 @@ export default function HomePage() {
 
 const CoffeeCard = ({ item }) => {
     return (
-        <div className="rounded-md flex flex-col bg-background shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div className=" cursor-pointer rounded-md flex flex-col bg-background shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <img src={item.image} alt={item.name} className="aspect-[16/12] w-full object-cover" />
             <div className="p-4 space-y-1">
                 <h3 className="font-semibold text-lg">{item.name}</h3>
