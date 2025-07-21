@@ -38,11 +38,11 @@ export default function HomePage() {
             <main className="font-sora pb-24">
                 <section className="p-4 bg-linear-to-tr from-foreground/90 to-foreground text-background">
                     <div className="mb-4">
-                        <label htmlFor="Location" className="text-muted/80 text-xs">
+                        <label htmlFor="Location" className="text-muted/80 text-xs px-0.5">
                             Location
                         </label>
                         <Select>
-                            <SelectTrigger className="max-w-xs w-full text-lg font-normal border-none shadow-none data-[placeholder]:text-background [&_svg:not([class*='text-'])]:text-background">
+                            <SelectTrigger className="px-0 max-w-xs w-full text-lg font-normal border-none shadow-none data-[placeholder]:text-background [&_svg:not([class*='text-'])]:text-background">
                                 <SelectValue placeholder="Select a location" />
                             </SelectTrigger>
                             <SelectContent>
