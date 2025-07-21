@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Heart } from "lucide-react";
 import { Compass } from "lucide-react";
 import { Plus } from "lucide-react";
@@ -17,20 +18,20 @@ export default function HomePage() {
             <nav className="fixed bottom-0 left-0 right-0 bg-background w-full p-4">
                 <ul className="flex justify-between max-w-sm mx-auto text-muted-foreground">
                     <li className="flex flex-col gap-2 justify-center items-center text-primary">
-                        <Home className="size-7" />
-                        <span className="text-xs font-bold">Home</span>
+                        <Home className="size-6" />
+                        <span className="text-xs font-semibold">Home</span>
                     </li>
                     <li className="flex flex-col gap-2 justify-center items-center">
-                        <Compass className="size-7" />
-                        <span className="text-xs font-bold">Explore</span>
+                        <Compass className="size-6" />
+                        <span className="text-xs font-semibold">Explore</span>
                     </li>
                     <li className="flex flex-col gap-2 justify-center items-center">
-                        <Heart className="size-7" />
-                        <span className="text-xs font-bold">Favorites</span>
+                        <Heart className="size-6" />
+                        <span className="text-xs font-semibold">Favorites</span>
                     </li>
                     <li className="flex flex-col gap-2 justify-center items-center">
-                        <Settings className="size-7" />
-                        <span className="text-xs font-bold">Settings</span>
+                        <Settings className="size-6" />
+                        <span className="text-xs font-semibold">Settings</span>
                     </li>
                 </ul>
             </nav>
@@ -40,10 +41,14 @@ export default function HomePage() {
                         <label htmlFor="Location" className="text-muted/80 text-xs">
                             Location
                         </label>
-                        <div className="text-lg flex items-center gap-2">
-                            New Delhi, India
-                            <ChevronDown className="size-7" />
-                        </div>
+                        <Select>
+                            <SelectTrigger className="max-w-xs w-full text-lg font-normal border-none shadow-none data-[placeholder]:text-background [&_svg:not([class*='text-'])]:text-background">
+                                <SelectValue placeholder="Select a location" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="New Delhi, India">New Delhi, India</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
                     <div className="flex items-center gap-4">
                         <div className="relative flex-1">
@@ -55,20 +60,25 @@ export default function HomePage() {
                             <span className="sr-only">Setting</span>
                         </Button>
                     </div>
-                    <div className="bg-primary p-4 px-6 rounded-l-lg space-y-2 relative top-14 left-4">
+                    <div className="z-10 h-40 bg-primary bg-no-repeat p-4 px-6 rounded-l-lg space-y-2 relative top-14 left-4 overflow-hidden">
+                        <img
+                            src="/Banner-1.png"
+                            alt=""
+                            className="-z-10 mask-l-from-50% mask-l-to-100% absolute top-0 right-0 h-full"
+                        />
                         <div>
-                            <div className="bg-destructive px-2 py-1 rounded-sm inline-block">PROMO</div>
+                            <div className="bg-[#ed5151] px-2 py-1 rounded-sm inline-block">Promo</div>
                         </div>
-                        <h2 className="font-medium text-2xl max-w-2/3">Discover the best coffee for you</h2>
+                        <h2 className="font-semibold text-2xl max-w-2/3">Buy one get one FREE</h2>
                     </div>
                 </section>
-                <section className="mt-12">
+                <section className="mt-12 p-4">
                     <Tabs defaultValue="all" className="w-full">
-                        <TabsList className={"w-full rounded-none bg-background h-12"}>
+                        <TabsList className={"w-full rounded-none bg-background h-12 overflow-x-auto"}>
                             <TabsTrigger
                                 value="all"
                                 className={
-                                    "rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
+                                    "rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
                                 }
                             >
                                 All Coffee
@@ -76,7 +86,7 @@ export default function HomePage() {
                             <TabsTrigger
                                 value="machiato"
                                 className={
-                                    "rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
+                                    "rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
                                 }
                             >
                                 Machiato
@@ -84,7 +94,7 @@ export default function HomePage() {
                             <TabsTrigger
                                 value="latte"
                                 className={
-                                    "rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
+                                    "rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
                                 }
                             >
                                 Latte
@@ -92,7 +102,7 @@ export default function HomePage() {
                             <TabsTrigger
                                 value="americano"
                                 className={
-                                    "rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
+                                    "rounded-md data-[state=active]:bg-primary data-[state=active]:text-primary-foreground dark:data-[state=active]:text-primary-foreground"
                                 }
                             >
                                 Americano
@@ -100,7 +110,7 @@ export default function HomePage() {
                         </TabsList>
                         <TabsContent
                             value="all"
-                            className={"grid gap-y-8 gap-x-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 p-4"}
+                            className={"grid gap-y-8 gap-x-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"}
                         >
                             {[
                                 {
@@ -140,14 +150,14 @@ export default function HomePage() {
 
 const CoffeeCard = ({ item }) => {
     return (
-        <div className="rounded-lg flex flex-col bg-background shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div className="rounded-md flex flex-col bg-background shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <img src={item.image} alt={item.name} className="aspect-[16/12] w-full object-cover" />
             <div className="p-4 space-y-1">
-                <h3 className="font-semibold text-xl">{item.name}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
+                <h3 className="font-semibold text-lg">{item.name}</h3>
+                <p className="text-muted-foreground/60 text-sm">{item.description}</p>
                 <div className="flex items-center justify-between pt-2">
                     <div className="font-bold text-lg">${item.price.toFixed(2)}</div>
-                    <Button size="icon" variant="secondary">
+                    <Button size="icon">
                         <Plus className="size-5" />
                     </Button>
                 </div>
