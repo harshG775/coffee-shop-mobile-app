@@ -11,6 +11,7 @@ import { ChevronDown } from "lucide-react";
 import { Settings } from "lucide-react";
 import { Home } from "lucide-react";
 import React from "react";
+import { Link } from "react-router";
 
 export default function HomePage() {
     return (
@@ -246,15 +247,17 @@ export default function HomePage() {
 
 const CoffeeCard = ({ item }) => {
     return (
-        <div className=" cursor-pointer rounded-md flex flex-col bg-background shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div className="rounded-md flex flex-col bg-background shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
             <img src={item.image} alt={item.name} className="aspect-[16/12] w-full object-cover" />
             <div className="p-4 space-y-1">
                 <h3 className="font-semibold text-lg">{item.name}</h3>
                 <p className="text-muted-foreground/60 text-sm">{item.description}</p>
                 <div className="flex items-center justify-between pt-2">
                     <div className="font-bold text-lg">${item.price.toFixed(2)}</div>
-                    <Button size="icon">
-                        <Plus className="size-5" />
+                    <Button size="icon" asChild>
+                        <Link to={`/${item.name?.toLowerCase().split(" ").join("-")}`}>
+                            <Plus className="size-5" />
+                        </Link>
                     </Button>
                 </div>
             </div>
